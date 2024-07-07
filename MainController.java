@@ -11,6 +11,9 @@ class MainController extends JFrame{
     private JButton collectInfo;
     private JTextField txtSoldierCount;
     private JTextField txtAmmoCount;
+    private JTextArea txtNotification;
+    private JTextField txtSend;
+    private JButton send;
 
     private MainController(){
         observer = new Observer();
@@ -21,8 +24,8 @@ class MainController extends JFrame{
         setLocation(0,0);
 
         JPanel leftPanel = new JPanel();
-        leftPanel.setLayout(new BorderLayout(10, 10));
-        leftPanel.setPreferredSize(new java.awt.Dimension(400, 400));
+        leftPanel.setLayout(null);
+        leftPanel.setPreferredSize(new Dimension(400, 400));
 
             String[] item = {"----Select Defence----","Helicopter", "Tank", "Submarine"};
             selectDefence = new JComboBox<String>(item);
@@ -68,8 +71,24 @@ class MainController extends JFrame{
         add(leftPanel, BorderLayout.WEST);
 
         JPanel rightPanel = new JPanel();
-        leftPanel.setLayout(new BorderLayout(10, 10));
-        leftPanel.setPreferredSize(new java.awt.Dimension(400, 400));
+        rightPanel.setLayout(null);
+        rightPanel.setPreferredSize(new Dimension(400, 400));
+
+            JLabel lblNotification = new JLabel("Notification");
+            lblNotification.setBounds(20, 30, 150, 30);
+            rightPanel.add(lblNotification);
+
+            txtNotification = new JTextArea();
+            txtNotification.setBounds(20, 60, 350, 200);
+            rightPanel.add(txtNotification);
+
+            txtSend = new JTextField();
+            txtSend.setBounds(20, 300, 250, 30);
+            rightPanel.add(txtSend);
+
+            send = new JButton("Send");
+            send.setBounds(280, 300, 90, 30);
+            rightPanel.add(send);
 
         add(rightPanel, BorderLayout.EAST);
     }
