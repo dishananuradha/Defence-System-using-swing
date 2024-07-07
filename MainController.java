@@ -2,10 +2,10 @@ import javax.swing.JFrame;
 
 class MainController extends JFrame{
     private static MainController mainController;
-    private Defence defence;
+    private Observer observer;
 
     private MainController(){
-        defence = new Defence();
+        observer = new Observer();
     }
 
     public static MainController getInstance(){
@@ -15,7 +15,7 @@ class MainController extends JFrame{
         return mainController;
     }
 
-    public Defence getDefence(){
-        return defence;
+    public Observer getObserver(){
+        return observer;
     }
 }
