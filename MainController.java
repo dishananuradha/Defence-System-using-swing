@@ -6,6 +6,12 @@ class MainController extends JFrame{
 
     private MainController(){
         observer = new Observer();
+
+        setTitle("Main Controller");
+        setSize(800, 400);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setLocation(0,0);
+
     }
 
     public static MainController getInstance(){
