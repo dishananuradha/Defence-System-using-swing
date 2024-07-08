@@ -2,22 +2,20 @@ import javax.swing.*;
 import java.awt.*;
 
 class MainController extends JFrame{
-    private static MainController mainController;
     private Observer observer;
 
-    private JCheckBox areaClear;
-    private JSlider position;
     private JComboBox<String> selectDefence;
     private JButton collectInfo;
     private JTextField txtSoldierCount;
     private JTextField txtAmmoCount;
+    private JSlider position;
+    private JCheckBox areaClear;
     private JTextArea txtNotification;
     private JTextField txtSend;
     private JButton send;
 
-    private MainController(){
-        observer = new Observer();
-
+    public MainController(Observer observer){
+        this.observer = observer;
         setTitle("Main Controller");
         setSize(800, 400);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -28,7 +26,7 @@ class MainController extends JFrame{
         mainPanel.setPreferredSize(new Dimension(800, 400));
 
         // Left side components
-        String[] item = {"----Select Defence----", "Helicopter", "Tank", "Submarine"};
+        String[] item = {"----Select Defence----", "Helicopter", "Tank", "Submarine","All"};
         selectDefence = new JComboBox<String>(item);
         selectDefence.setBounds(20, 30, 150, 30);
         mainPanel.add(selectDefence);
@@ -79,7 +77,7 @@ class MainController extends JFrame{
         areaClear.setBounds(20, 310, 100, 30);
         mainPanel.add(areaClear);
 
-        // Separator
+        // Separator3
         JSeparator separator3 = new JSeparator(SwingConstants.VERTICAL);
         separator3.setBounds(385, 20, 1, 320);
         mainPanel.add(separator3);
@@ -90,8 +88,12 @@ class MainController extends JFrame{
         mainPanel.add(lblNotification);
 
         txtNotification = new JTextArea();
-        txtNotification.setBounds(420, 60, 350, 200);
-        mainPanel.add(txtNotification);
+        txtNotification.setLineWrap(true);
+        txtNotification.setWrapStyleWord(true);
+        JScrollPane scrollPane = new JScrollPane(txtNotification);
+        scrollPane.setBounds(420, 60, 350, 200);
+        scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
+        mainPanel.add(scrollPane);
 
         txtSend = new JTextField();
         txtSend.setBounds(420, 300, 250, 30);
@@ -102,16 +104,5 @@ class MainController extends JFrame{
         mainPanel.add(send);
 
         add(mainPanel);
-    }
-
-    public static MainController getInstance(){
-        if(mainController == null){
-            mainController = new MainController();
-        }
-        return mainController;
-    }
-
-    public Observer getObserver(){
-        return observer;
     }
 }
