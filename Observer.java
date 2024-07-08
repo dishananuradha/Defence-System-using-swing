@@ -6,4 +6,10 @@ class Observer implements SuperObserver{
     public void addDefence(SuperDefence defence){
         defenceList.add(defence);
     }
+
+    public void areaClear(Boolean isAreaClear){
+        for(SuperDefence defence : defenceList){
+            defence.areaClear(isAreaClear);
+        }
+    }
 }

@@ -75,6 +75,13 @@ class MainController extends JFrame{
 
         areaClear = new JCheckBox("Area Clear");
         areaClear.setBounds(20, 310, 100, 30);
+        areaClear.addActionListener(e -> {
+            if(areaClear.isSelected()){
+                observer.areaClear(true);
+            }else{
+                observer.areaClear(false);
+            }
+        });
         mainPanel.add(areaClear);
 
         // Separator3

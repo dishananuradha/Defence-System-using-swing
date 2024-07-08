@@ -90,4 +90,13 @@ class Helicopter extends JFrame implements SuperDefence{
 
         add(mainPanel);
     }
+
+    @Override
+    public void areaClear(Boolean isAreaClear) {
+        if(isAreaClear){
+            areaClear.setText("Area Cleared");
+        }else{
+            areaClear.setText("Area Not Cleared");
+        }
+    }
 }
