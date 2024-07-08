@@ -45,18 +45,22 @@ class Submarine extends JFrame implements SuperDefence{
         mainPanel.add(txtAmmoCount);
 
         shoot = new JButton("Shoot");
+        shoot.setEnabled(false);
         shoot.setBounds(65, 110, 150, 30);
         mainPanel.add(shoot);
 
         sonarOperation = new JButton("Sonar Operation");
+        sonarOperation.setEnabled(false);
         sonarOperation.setBounds(65, 150, 150, 30);
         mainPanel.add(sonarOperation);
 
         tomahawkMissile = new JButton("Tomahawk Missile");
+        tomahawkMissile.setEnabled(false);
         tomahawkMissile.setBounds(65, 190, 150, 30);
         mainPanel.add(tomahawkMissile);
 
         tridentMissile = new JButton("trident Missile");
+        tridentMissile.setEnabled(false);
         tridentMissile.setBounds(65, 230, 150, 30);
         mainPanel.add(tridentMissile);
 
@@ -103,6 +107,16 @@ class Submarine extends JFrame implements SuperDefence{
             areaClear.setText("Area Cleared");
         }else{
             areaClear.setText("Area Not Cleared");
+        }
+    }
+
+    @Override
+    public void position(int positionValue) {
+        if(position.isSelected()){
+            shoot.setEnabled(positionValue > 20? true : false);
+            sonarOperation.setEnabled(positionValue > 40? true : false);
+            tomahawkMissile.setEnabled(positionValue > 60? true : false);
+            tridentMissile.setEnabled(positionValue > 80? true : false);
         }
     }
 }

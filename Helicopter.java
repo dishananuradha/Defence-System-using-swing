@@ -43,14 +43,17 @@ class Helicopter extends JFrame implements SuperDefence{
         mainPanel.add(txtAmmoCount);
 
         shoot = new JButton("Shoot");
+        shoot.setEnabled(false);
         shoot.setBounds(65, 130, 150, 30);
         mainPanel.add(shoot);
 
         missileOperation = new JButton("Missile Operation");
+        missileOperation.setEnabled(false);
         missileOperation.setBounds(65, 170, 150, 30);
         mainPanel.add(missileOperation);
 
         laserOperation = new JButton("Laser Operation");
+        laserOperation.setEnabled(false);
         laserOperation.setBounds(65, 210, 150, 30);
         mainPanel.add(laserOperation);
 
@@ -97,6 +100,15 @@ class Helicopter extends JFrame implements SuperDefence{
             areaClear.setText("Area Cleared");
         }else{
             areaClear.setText("Area Not Cleared");
+        }
+    }
+
+    @Override
+    public void position(int positionValue) {
+        if(position.isSelected()){
+            shoot.setEnabled(positionValue > 25? true : false);
+            missileOperation.setEnabled(positionValue > 50? true : false);
+            laserOperation.setEnabled(positionValue > 75? true : false);
         }
     }
 }

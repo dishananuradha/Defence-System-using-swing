@@ -7,9 +7,17 @@ class Observer implements SuperObserver{
         defenceList.add(defence);
     }
 
+    @Override
     public void areaClear(Boolean isAreaClear){
         for(SuperDefence defence : defenceList){
             defence.areaClear(isAreaClear);
+        }
+    }
+
+    @Override
+    public void position(int positionValue){
+        for(SuperDefence defence : defenceList){
+            defence.position(positionValue);
         }
     }
 }

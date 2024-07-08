@@ -44,18 +44,22 @@ class Tank extends JFrame implements SuperDefence{
         mainPanel.add(txtAmmoCount);
 
         shoot = new JButton("Shoot");
+        shoot.setEnabled(false);
         shoot.setBounds(65, 110, 150, 30);
         mainPanel.add(shoot);
 
         missileOperation = new JButton("Missile Operation");
+        missileOperation.setEnabled(false);
         missileOperation.setBounds(65, 150, 150, 30);
         mainPanel.add(missileOperation);
 
         radarOperation = new JButton("Radar Operation");
+        radarOperation.setEnabled(false);
         radarOperation.setBounds(65, 190, 150, 30);
         mainPanel.add(radarOperation);
 
         rotateShooting = new JButton("Rotate Shooting");
+        rotateShooting.setEnabled(false);
         rotateShooting.setBounds(65, 230, 150, 30);
         mainPanel.add(rotateShooting);
 
@@ -102,6 +106,16 @@ class Tank extends JFrame implements SuperDefence{
             areaClear.setText("Area Cleared");
         }else{
             areaClear.setText("Area Not Cleared");
+        }
+    }
+
+    @Override
+    public void position(int positionValue) {
+        if(position.isSelected()){
+            shoot.setEnabled(positionValue > 20? true : false);
+            missileOperation.setEnabled(positionValue > 40? true : false);
+            radarOperation.setEnabled(positionValue > 60? true : false);
+            rotateShooting.setEnabled(positionValue > 80? true : false);
         }
     }
 }

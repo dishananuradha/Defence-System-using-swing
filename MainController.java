@@ -63,6 +63,9 @@ class MainController extends JFrame{
         position.setMinorTickSpacing(5);
         position.setPaintTicks(true);
         position.setPaintLabels(true);
+        position.addChangeListener(e -> {
+            observer.position(position.getValue());
+        });
         mainPanel.add(position);
 
         //Separator2
