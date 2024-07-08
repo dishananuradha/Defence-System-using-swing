@@ -2,8 +2,6 @@ import javax.swing.*;
 import java.awt.*;
 
 class MainController extends JFrame{
-    private SuperObserver observer;
-
     private JComboBox<String> selectDefence;
     private JButton collectInfo;
     private JTextField txtSoldierCount;
@@ -15,7 +13,6 @@ class MainController extends JFrame{
     private JButton send;
 
     public MainController(SuperObserver observer){
-        this.observer = observer;
         setTitle("Main Controller");
         setSize(800, 400);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
