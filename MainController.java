@@ -21,76 +21,77 @@ class MainController extends JFrame{
         setTitle("Main Controller");
         setSize(800, 400);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setLocation(0,0);
+        setLocation(0, 0);
 
-        JPanel leftPanel = new JPanel();
-        leftPanel.setLayout(null);
-        leftPanel.setPreferredSize(new Dimension(400, 400));
+        JPanel mainPanel = new JPanel();
+        mainPanel.setLayout(null);
+        mainPanel.setPreferredSize(new Dimension(800, 400));
 
-            String[] item = {"----Select Defence----","Helicopter", "Tank", "Submarine"};
-            selectDefence = new JComboBox<String>(item);
-            selectDefence.setBounds(20, 30, 150, 30);
-            leftPanel.add(selectDefence);
+        // Left side components
+        String[] item = {"----Select Defence----", "Helicopter", "Tank", "Submarine"};
+        selectDefence = new JComboBox<String>(item);
+        selectDefence.setBounds(20, 30, 150, 30);
+        mainPanel.add(selectDefence);
 
-            collectInfo = new JButton("Collect Info");
-            collectInfo.setBounds(200, 30, 150, 30);
-            leftPanel.add(collectInfo);
+        collectInfo = new JButton("Collect Info");
+        collectInfo.setBounds(200, 30, 150, 30);
+        mainPanel.add(collectInfo);
 
-            JLabel lblSoldierCount = new JLabel("Soldier Count");
-            lblSoldierCount.setBounds(20, 100, 150, 30);
-            leftPanel.add(lblSoldierCount);
+        JLabel lblSoldierCount = new JLabel("Soldier Count");
+        lblSoldierCount.setBounds(20, 100, 150, 30);
+        mainPanel.add(lblSoldierCount);
 
-            txtSoldierCount = new JTextField();
-            txtSoldierCount.setBounds(200, 100, 150, 30);
-            leftPanel.add(txtSoldierCount);
+        txtSoldierCount = new JTextField();
+        txtSoldierCount.setBounds(200, 100, 150, 30);
+        mainPanel.add(txtSoldierCount);
 
-            JLabel lblAmmoCount = new JLabel("Ammo Count");
-            lblAmmoCount.setBounds(20, 140, 150, 30);
-            leftPanel.add(lblAmmoCount);
+        JLabel lblAmmoCount = new JLabel("Ammo Count");
+        lblAmmoCount.setBounds(20, 140, 150, 30);
+        mainPanel.add(lblAmmoCount);
 
-            txtAmmoCount = new JTextField();
-            txtAmmoCount.setBounds(200, 140, 150, 30);
-            leftPanel.add(txtAmmoCount);
+        txtAmmoCount = new JTextField();
+        txtAmmoCount.setBounds(200, 140, 150, 30);
+        mainPanel.add(txtAmmoCount);
 
-            JLabel lblPosition = new JLabel("Position");
-            lblPosition.setBounds(20, 200, 150, 30);
-            leftPanel.add(lblPosition);
+        JLabel lblPosition = new JLabel("Position");
+        lblPosition.setBounds(20, 200, 150, 30);
+        mainPanel.add(lblPosition);
 
-            position = new JSlider(JSlider.HORIZONTAL, 0, 100, 0);
-            position.setBounds(20, 230, 330, 60);
-            position.setMajorTickSpacing(20);
-            position.setMinorTickSpacing(5);
-            position.setPaintTicks(true);
-            position.setPaintLabels(true);
-            leftPanel.add(position);
+        position = new JSlider(JSlider.HORIZONTAL, 0, 100, 0);
+        position.setBounds(20, 230, 330, 60);
+        position.setMajorTickSpacing(20);
+        position.setMinorTickSpacing(5);
+        position.setPaintTicks(true);
+        position.setPaintLabels(true);
+        mainPanel.add(position);
 
-            areaClear= new JCheckBox("Area Clear");
-            areaClear.setBounds(20, 310, 100, 30);
-            leftPanel.add(areaClear);
-        
-        add(leftPanel, BorderLayout.WEST);
+        areaClear = new JCheckBox("Area Clear");
+        areaClear.setBounds(20, 310, 100, 30);
+        mainPanel.add(areaClear);
 
-        JPanel rightPanel = new JPanel();
-        rightPanel.setLayout(null);
-        rightPanel.setPreferredSize(new Dimension(400, 400));
+        // Separator
+        JSeparator separator = new JSeparator(SwingConstants.VERTICAL);
+        separator.setBounds(400, 0, 1, 400);
+        mainPanel.add(separator);
 
-            JLabel lblNotification = new JLabel("Notification");
-            lblNotification.setBounds(20, 30, 150, 30);
-            rightPanel.add(lblNotification);
+        // Right side components
+        JLabel lblNotification = new JLabel("Notification");
+        lblNotification.setBounds(420, 30, 150, 30);
+        mainPanel.add(lblNotification);
 
-            txtNotification = new JTextArea();
-            txtNotification.setBounds(20, 60, 350, 200);
-            rightPanel.add(txtNotification);
+        txtNotification = new JTextArea();
+        txtNotification.setBounds(420, 60, 350, 200);
+        mainPanel.add(txtNotification);
 
-            txtSend = new JTextField();
-            txtSend.setBounds(20, 300, 250, 30);
-            rightPanel.add(txtSend);
+        txtSend = new JTextField();
+        txtSend.setBounds(420, 300, 250, 30);
+        mainPanel.add(txtSend);
 
-            send = new JButton("Send");
-            send.setBounds(280, 300, 90, 30);
-            rightPanel.add(send);
+        send = new JButton("Send");
+        send.setBounds(680, 300, 90, 30);
+        mainPanel.add(send);
 
-        add(rightPanel, BorderLayout.EAST);
+        add(mainPanel);
     }
 
     public static MainController getInstance(){
