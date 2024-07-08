@@ -2,7 +2,7 @@ import javax.swing.*;
 import java.awt.*;
 
 class MainController extends JFrame{
-    private Observer observer;
+    private SuperObserver observer;
 
     private JComboBox<String> selectDefence;
     private JButton collectInfo;
@@ -14,7 +14,7 @@ class MainController extends JFrame{
     private JTextField txtSend;
     private JButton send;
 
-    public MainController(Observer observer){
+    public MainController(SuperObserver observer){
         this.observer = observer;
         setTitle("Main Controller");
         setSize(800, 400);

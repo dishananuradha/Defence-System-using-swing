@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 
-class Observer {
+class Observer implements SuperObserver{
     private ArrayList<SuperDefence> defenceList = new ArrayList<SuperDefence>();
 
     public void addDefence(SuperDefence defence){
