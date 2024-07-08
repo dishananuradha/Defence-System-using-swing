@@ -6,9 +6,12 @@ class MainController extends JFrame{
     private JButton collectInfo;
     private JTextField txtSoldierCount;
     private JTextField txtAmmoCount;
+    private JTextField txtEnergyLevel;
+    private JTextField txtOxygenLevel;
     private JSlider position;
     private JCheckBox areaClear;
     private JTextArea txtNotification;
+    private JCheckBox sendPrivate;
     private JTextField txtSend;
     private JButton send;
 
@@ -33,20 +36,36 @@ class MainController extends JFrame{
         mainPanel.add(collectInfo);
 
         JLabel lblSoldierCount = new JLabel("Soldier Count");
-        lblSoldierCount.setBounds(20, 100, 150, 30);
+        lblSoldierCount.setBounds(20, 100, 70, 30);
         mainPanel.add(lblSoldierCount);
 
         txtSoldierCount = new JTextField();
-        txtSoldierCount.setBounds(200, 100, 150, 30);
+        txtSoldierCount.setBounds(100, 100, 100, 30);
         mainPanel.add(txtSoldierCount);
 
         JLabel lblAmmoCount = new JLabel("Ammo Count");
-        lblAmmoCount.setBounds(20, 140, 150, 30);
+        lblAmmoCount.setBounds(20, 140, 70, 30);
         mainPanel.add(lblAmmoCount);
 
         txtAmmoCount = new JTextField();
-        txtAmmoCount.setBounds(200, 140, 150, 30);
+        txtAmmoCount.setBounds(100, 140, 100, 30);
         mainPanel.add(txtAmmoCount);
+
+        JLabel lblEnergyLevel = new JLabel("Energy Level");
+        lblEnergyLevel.setBounds(220, 100, 70, 30);
+        mainPanel.add(lblEnergyLevel);
+
+        txtEnergyLevel = new JTextField();
+        txtEnergyLevel.setBounds(300, 100, 90, 30);
+        mainPanel.add(txtEnergyLevel);
+
+        JLabel lblOxygenLevel = new JLabel("Oxygen Level");
+        lblOxygenLevel.setBounds(220, 140, 70, 30);
+        mainPanel.add(lblOxygenLevel);
+
+        txtOxygenLevel = new JTextField();
+        txtOxygenLevel.setBounds(300, 140, 90, 30);
+        mainPanel.add(txtOxygenLevel);
 
         //Separator1
         JSeparator Separator1 = new JSeparator(SwingConstants.HORIZONTAL);
@@ -86,21 +105,25 @@ class MainController extends JFrame{
 
         // Separator3
         JSeparator separator3 = new JSeparator(SwingConstants.VERTICAL);
-        separator3.setBounds(385, 20, 1, 320);
+        separator3.setBounds(405, 20, 1, 320);
         mainPanel.add(separator3);
 
         // Right side components
         JLabel lblNotification = new JLabel("Notifications");
-        lblNotification.setBounds(420, 30, 150, 30);
+        lblNotification.setBounds(420, 20, 150, 30);
         mainPanel.add(lblNotification);
 
         txtNotification = new JTextArea();
         txtNotification.setLineWrap(true);
         txtNotification.setWrapStyleWord(true);
         JScrollPane scrollPane = new JScrollPane(txtNotification);
-        scrollPane.setBounds(420, 60, 350, 200);
+        scrollPane.setBounds(420, 50, 350, 200);
         scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
         mainPanel.add(scrollPane);
+
+        sendPrivate = new JCheckBox("Send Private");
+        sendPrivate.setBounds(420, 255, 100, 30);
+        mainPanel.add(sendPrivate);
 
         txtSend = new JTextField();
         txtSend.setBounds(420, 300, 250, 30);
