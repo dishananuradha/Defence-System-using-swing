@@ -4,10 +4,11 @@ import java.awt.*;
 class Helicopter extends JFrame implements SuperDefence{
     private JTextField txtSoldierCount;
     private JTextField txtAmmoCount;
-    private JCheckBox position;
     private JButton shoot;
     private JButton missileOperation;
     private JButton laserOperation;
+    private JCheckBox position;
+    private JLabel areaClear;
     private JTextArea txtNotification;
     private JTextField txtSend;
     private JButton send;
@@ -57,7 +58,7 @@ class Helicopter extends JFrame implements SuperDefence{
         position.setBounds(20, 270, 150, 30);
         mainPanel.add(position);
 
-        JLabel areaClear = new JLabel("Area Not Cleared");
+        areaClear = new JLabel("Area Not Cleared");
         areaClear.setBounds(20, 310, 150, 30);
         mainPanel.add(areaClear);
 
