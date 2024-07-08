@@ -53,6 +53,11 @@ class MainController extends JFrame{
         txtAmmoCount.setBounds(200, 140, 150, 30);
         mainPanel.add(txtAmmoCount);
 
+        //Separator1
+        JSeparator Separator1 = new JSeparator(SwingConstants.HORIZONTAL);
+        Separator1.setBounds(20, 190, 340, 1);
+        mainPanel.add(Separator1);
+
         JLabel lblPosition = new JLabel("Position");
         lblPosition.setBounds(20, 200, 150, 30);
         mainPanel.add(lblPosition);
@@ -65,17 +70,22 @@ class MainController extends JFrame{
         position.setPaintLabels(true);
         mainPanel.add(position);
 
+        //Separator2
+        JSeparator Separator2 = new JSeparator(SwingConstants.HORIZONTAL);
+        Separator2.setBounds(20, 295, 340, 1);
+        mainPanel.add(Separator2);
+
         areaClear = new JCheckBox("Area Clear");
         areaClear.setBounds(20, 310, 100, 30);
         mainPanel.add(areaClear);
 
         // Separator
-        JSeparator separator = new JSeparator(SwingConstants.VERTICAL);
-        separator.setBounds(400, 0, 1, 400);
-        mainPanel.add(separator);
+        JSeparator separator3 = new JSeparator(SwingConstants.VERTICAL);
+        separator3.setBounds(385, 20, 1, 320);
+        mainPanel.add(separator3);
 
         // Right side components
-        JLabel lblNotification = new JLabel("Notification");
+        JLabel lblNotification = new JLabel("Notifications");
         lblNotification.setBounds(420, 30, 150, 30);
         mainPanel.add(lblNotification);
 
