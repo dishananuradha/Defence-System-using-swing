@@ -138,8 +138,6 @@ class MainController extends JFrame{
         send.addActionListener(e -> {
             if(sendPrivate.isSelected()){
                 observer.sendPrivate(txtSend.getText(), selectDefence.getSelectedItem().toString());
-            }else if(selectDefence.getSelectedItem().toString().equals("All")){
-                observer.sendAll(txtSend.getText());
             }else{
                 observer.sendAll(txtSend.getText());
             }
