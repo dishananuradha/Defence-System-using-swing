@@ -97,7 +97,7 @@ class Submarine extends JFrame implements SuperDefence{
         send = new JButton("Send");
         send.setBounds(500, 300, 65, 30);
         send.addActionListener(e -> {
-            mainController.sendToMain(txtSend.getText(), "Helicopter");
+            mainController.sendToMain(txtSend.getText(), "Submarine");
             txtSend.setText("");
         });
         mainPanel.add(send);
