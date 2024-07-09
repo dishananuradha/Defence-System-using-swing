@@ -111,4 +111,16 @@ class Helicopter extends JFrame implements SuperDefence{
             laserOperation.setEnabled(positionValue > 75? true : false);
         }
     }
+
+    @Override
+    public void sendPrivate(String message, String defence) {
+        if (defence.equals("Helicopter")) {
+            txtNotification.append("Message to Helicopter: " + message + "\n");
+        }
+    }
+
+    @Override
+    public void sendAll(String message) {
+        txtNotification.append("Message to all: " + message + "\n");
+    }
 }

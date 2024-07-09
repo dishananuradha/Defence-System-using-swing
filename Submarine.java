@@ -119,4 +119,16 @@ class Submarine extends JFrame implements SuperDefence{
             tridentMissile.setEnabled(positionValue > 80? true : false);
         }
     }
+
+    @Override
+    public void sendPrivate(String message, String defence) {
+        if (defence.equals("Submarine")) {
+            txtNotification.append("Message to Submarine: " + message + "\n");
+        }
+    }
+
+    @Override
+    public void sendAll(String message) {
+        txtNotification.append("Message to all: " + message + "\n");
+    }
 }

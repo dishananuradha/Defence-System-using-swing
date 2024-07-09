@@ -118,4 +118,16 @@ class Tank extends JFrame implements SuperDefence{
             rotateShooting.setEnabled(positionValue > 80? true : false);
         }
     }
+
+    @Override
+    public void sendPrivate(String message, String defence) {
+        if (defence.equals("Tank")) {
+            txtNotification.append("Message to Tank: " + message + "\n");
+        }
+    }
+
+    @Override
+    public void sendAll(String message) {
+        txtNotification.append("Message to all: " + message + "\n");
+    }
 }

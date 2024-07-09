@@ -41,6 +41,7 @@ class MainController extends JFrame{
 
         txtSoldierCount = new JTextField();
         txtSoldierCount.setBounds(100, 100, 100, 30);
+        txtSoldierCount.setEditable(false);
         mainPanel.add(txtSoldierCount);
 
         JLabel lblAmmoCount = new JLabel("Ammo Count");
@@ -49,6 +50,7 @@ class MainController extends JFrame{
 
         txtAmmoCount = new JTextField();
         txtAmmoCount.setBounds(100, 140, 100, 30);
+        txtAmmoCount.setEditable(false);
         mainPanel.add(txtAmmoCount);
 
         JLabel lblEnergyLevel = new JLabel("Energy Level");
@@ -57,6 +59,7 @@ class MainController extends JFrame{
 
         txtEnergyLevel = new JTextField();
         txtEnergyLevel.setBounds(300, 100, 90, 30);
+        txtEnergyLevel.setEditable(false);
         mainPanel.add(txtEnergyLevel);
 
         JLabel lblOxygenLevel = new JLabel("Oxygen Level");
@@ -65,6 +68,7 @@ class MainController extends JFrame{
 
         txtOxygenLevel = new JTextField();
         txtOxygenLevel.setBounds(300, 140, 90, 30);
+        txtOxygenLevel.setEditable(false);
         mainPanel.add(txtOxygenLevel);
 
         //Separator1
@@ -131,6 +135,15 @@ class MainController extends JFrame{
 
         send = new JButton("Send");
         send.setBounds(680, 300, 90, 30);
+        send.addActionListener(e -> {
+            if(sendPrivate.isSelected()){
+                observer.sendPrivate(txtSend.getText(), selectDefence.getSelectedItem().toString());
+            }else if(selectDefence.getSelectedItem().toString().equals("All")){
+                observer.sendAll(txtSend.getText());
+            }else{
+                observer.sendAll(txtSend.getText());
+            }
+        });
         mainPanel.add(send);
 
         add(mainPanel);
