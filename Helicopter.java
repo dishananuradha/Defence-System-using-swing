@@ -13,7 +13,7 @@ class Helicopter extends JFrame implements SuperDefence{
     private JTextField txtSend;
     private JButton send;
 
-    public Helicopter(JFrame mainController){
+    public Helicopter(MainController mainController){
         setTitle("Helicopter");
         setSize(600, 400);
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
@@ -89,6 +89,14 @@ class Helicopter extends JFrame implements SuperDefence{
 
         send = new JButton("Send");
         send.setBounds(500, 300, 65, 30);
+        send.addActionListener(e -> {
+            if(txtSend.getText().isEmpty()){
+                JOptionPane.showMessageDialog(this, "Please enter a message");
+            }else{
+                mainController.sendToMain(txtSend.getText(), "Helicopter");
+            }
+            txtSend.setText("");
+        });
         mainPanel.add(send);
 
         add(mainPanel);

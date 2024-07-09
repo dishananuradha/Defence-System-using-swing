@@ -143,9 +143,14 @@ class MainController extends JFrame{
             }else{
                 observer.sendAll(txtSend.getText());
             }
+            txtSend.setText("");
         });
         mainPanel.add(send);
 
         add(mainPanel);
+    }
+
+    public void sendToMain(String message, String defence){
+        txtNotification.append(defence + ": " + message + "\n");
     }
 }
