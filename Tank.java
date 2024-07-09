@@ -96,11 +96,7 @@ class Tank extends JFrame implements SuperDefence{
         send = new JButton("Send");
         send.setBounds(500, 300, 65, 30);
         send.addActionListener(e -> {
-            if(txtSend.getText().isEmpty()){
-                JOptionPane.showMessageDialog(this, "Please enter a message");
-            }else{
-                mainController.sendToMain(txtSend.getText(), "Tank");
-            }
+            mainController.sendToMain(txtSend.getText(), "Helicopter");
             txtSend.setText("");
         });
         mainPanel.add(send);
