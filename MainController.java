@@ -1,7 +1,7 @@
 import javax.swing.*;
 import java.awt.*;
 
-class MainController extends JFrame{
+class MainController extends JFrame implements SuperMainController{
     private JComboBox<String> selectDefence;
     private JButton collectInfo;
     private JTextField txtSoldierCount;
