@@ -127,4 +127,14 @@ class Helicopter extends JFrame implements SuperDefence{
     public void sendAll(String message) {
         txtNotification.append("Message to all: " + message + "\n");
     }
+
+    @Override
+    public int getSoldierCount() {
+        return Integer.parseInt(txtSoldierCount.getText());
+    }
+
+    @Override
+    public int getAmmoCount() {
+        return Integer.parseInt(txtAmmoCount.getText());
+    }
 }

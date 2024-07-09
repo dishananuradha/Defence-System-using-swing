@@ -34,4 +34,40 @@ class Observer implements SuperObserver{
             d.sendAll(message);
         }
     }
+
+    @Override
+    public String getSoldierCount(String defence){
+        if(defence.equals("All")){
+            int totalSoldierCount = 0;
+            for(SuperDefence d : defenceList){
+                totalSoldierCount += d.getSoldierCount();
+            }
+            return String.valueOf(totalSoldierCount);
+        }else{
+            for(SuperDefence d : defenceList){
+                if(defence.equals(d.getClass().getName())){
+                    return String.valueOf(d.getSoldierCount());
+                }
+            }
+        }
+        return null;
+    }
+
+    @Override
+    public String getAmmoCount(String defence){
+        if(defence.equals("All")){
+            int totalAmmoCount = 0;
+            for(SuperDefence d : defenceList){
+                totalAmmoCount += d.getAmmoCount();
+            }
+            return String.valueOf(totalAmmoCount);
+        }else{
+            for(SuperDefence d : defenceList){
+                if(defence.equals(d.getClass().getName())){
+                    return String.valueOf(d.getAmmoCount());
+                }
+            }
+        }
+        return null;
+    }
 }

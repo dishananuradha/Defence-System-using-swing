@@ -33,6 +33,10 @@ class MainController extends JFrame implements SuperMainController{
 
         collectInfo = new JButton("Collect Info");
         collectInfo.setBounds(200, 30, 150, 30);
+        collectInfo.addActionListener(e -> {
+            txtSoldierCount.setText(observer.getSoldierCount(selectDefence.getSelectedItem().toString()));
+            txtAmmoCount.setText(observer.getAmmoCount(selectDefence.getSelectedItem().toString()));
+        });
         mainPanel.add(collectInfo);
 
         JLabel lblSoldierCount = new JLabel("Soldier Count");
@@ -148,6 +152,7 @@ class MainController extends JFrame implements SuperMainController{
         add(mainPanel);
     }
 
+    @Override
     public void sendToMain(String message, String defence){
         txtNotification.append(defence + ": " + message + "\n");
     }
