@@ -13,6 +13,8 @@ class Submarine extends JFrame implements SuperDefence{
     private JTextArea txtNotification;
     private JTextField txtSend;
     private JButton send;
+    private JSlider energyLevel;
+    private JSlider oxygenLevel;
 
     public Submarine(MainController mainController){
         setTitle("Submarine");
@@ -79,7 +81,7 @@ class Submarine extends JFrame implements SuperDefence{
 
         // Right side components
         JLabel lblNotification = new JLabel("Notifications");
-        lblNotification.setBounds(300, 30, 150, 30);
+        lblNotification.setBounds(300, 20, 150, 30);
         mainPanel.add(lblNotification);
 
         txtNotification = new JTextArea();
@@ -101,6 +103,30 @@ class Submarine extends JFrame implements SuperDefence{
             txtSend.setText("");
         });
         mainPanel.add(send);
+
+        JLabel lblEnergyLevel = new JLabel("Energy Level");
+        lblEnergyLevel.setBounds(580, 20, 150, 30);
+        mainPanel.add(lblEnergyLevel);
+
+        energyLevel = new JSlider(JSlider.VERTICAL, 0, 100, 0);
+        energyLevel.setBounds(610, 50, 60, 280);
+        energyLevel.setMajorTickSpacing(20);
+        energyLevel.setMinorTickSpacing(5);
+        energyLevel.setPaintTicks(true);
+        energyLevel.setPaintLabels(true);
+        mainPanel.add(energyLevel);
+
+        JLabel lblOxygenLevel = new JLabel("Oxygen Level");
+        lblOxygenLevel.setBounds(680, 20, 150, 30);
+        mainPanel.add(lblOxygenLevel);
+
+        oxygenLevel = new JSlider(JSlider.VERTICAL, 0, 100, 0);
+        oxygenLevel.setBounds(700, 50, 60, 280);
+        oxygenLevel.setMajorTickSpacing(20);
+        oxygenLevel.setMinorTickSpacing(5);
+        oxygenLevel.setPaintTicks(true);
+        oxygenLevel.setPaintLabels(true);
+        mainPanel.add(oxygenLevel);
 
         add(mainPanel);
     }

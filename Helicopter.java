@@ -72,7 +72,7 @@ class Helicopter extends JFrame implements SuperDefence{
 
         // Right side components
         JLabel lblNotification = new JLabel("Notifications");
-        lblNotification.setBounds(300, 30, 150, 30);
+        lblNotification.setBounds(300, 20, 150, 30);
         mainPanel.add(lblNotification);
 
         txtNotification = new JTextArea();
