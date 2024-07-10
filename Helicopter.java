@@ -63,6 +63,7 @@ class Helicopter extends JFrame implements SuperDefence{
 
         areaClear = new JLabel("Area Not Cleared");
         areaClear.setBounds(20, 310, 150, 30);
+        areaClear.setForeground(Color.RED);
         mainPanel.add(areaClear);
 
         // Separator
@@ -102,8 +103,10 @@ class Helicopter extends JFrame implements SuperDefence{
     public void areaClear(Boolean isAreaClear) {
         if(isAreaClear){
             areaClear.setText("Area Cleared");
+            areaClear.setForeground(Color.GREEN);
         }else{
             areaClear.setText("Area Not Cleared");
+            areaClear.setForeground(Color.RED);
         }
     }
 
