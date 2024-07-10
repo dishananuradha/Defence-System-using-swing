@@ -129,12 +129,12 @@ class Helicopter extends JFrame implements SuperDefence{
     }
 
     @Override
-    public int getSoldierCount() {
-        return Integer.parseInt(txtSoldierCount.getText());
+    public String getSoldierCount() {
+        return txtSoldierCount.getText();
     }
 
     @Override
-    public int getAmmoCount() {
-        return Integer.parseInt(txtAmmoCount.getText());
+    public String getAmmoCount() {
+        return txtAmmoCount.getText();
     }
 }

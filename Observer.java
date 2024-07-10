@@ -40,13 +40,13 @@ class Observer implements SuperObserver{
         if(defence.equals("All")){
             int totalSoldierCount = 0;
             for(SuperDefence d : defenceList){
-                totalSoldierCount += d.getSoldierCount();
+                totalSoldierCount += Integer.parseInt(d.getSoldierCount() == null? "0" : d.getSoldierCount());
             }
             return String.valueOf(totalSoldierCount);
         }else{
             for(SuperDefence d : defenceList){
                 if(defence.equals(d.getClass().getName())){
-                    return String.valueOf(d.getSoldierCount());
+                    return d.getSoldierCount();
                 }
             }
         }
@@ -58,15 +58,41 @@ class Observer implements SuperObserver{
         if(defence.equals("All")){
             int totalAmmoCount = 0;
             for(SuperDefence d : defenceList){
-                totalAmmoCount += d.getAmmoCount();
+                totalAmmoCount += Integer.parseInt(d.getAmmoCount() == null? "0" : d.getAmmoCount());
             }
             return String.valueOf(totalAmmoCount);
         }else{
             for(SuperDefence d : defenceList){
                 if(defence.equals(d.getClass().getName())){
-                    return String.valueOf(d.getAmmoCount());
+                    return d.getAmmoCount();
                 }
             }
+        }
+        return null;
+    }
+
+    @Override
+    public String getEnergyLevel(String defence){
+        if(defence.equals("Submarine") || defence.equals("All")){
+            for(SuperDefence d : defenceList){
+                if(d.getClass().getName().equals("Submarine")){
+                    return d.getEnergyLevel();
+                }
+            }
+            return null;
+        }
+        return null;
+    }
+
+    @Override
+    public String getOxygenLevel(String defence){
+        if(defence.equals("Submarine") || defence.equals("All")){
+            for(SuperDefence d : defenceList){
+                if(d.getClass().getName().equals("Submarine")){
+                    return d.getOxygenLevel();
+                }
+            }
+            return null;
         }
         return null;
     }

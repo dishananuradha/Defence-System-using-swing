@@ -3,6 +3,14 @@ interface SuperDefence {
     public void position(int positionValue);
     public void sendPrivate(String message, String defence);
     public void sendAll(String message);
-    public int getSoldierCount();
-    public int getAmmoCount();
+    public String getSoldierCount();
+    public String getAmmoCount();
+
+    default public String getEnergyLevel(){
+        return null;
+    };
+    
+    default public String getOxygenLevel(){
+        return null;
+    };
 }

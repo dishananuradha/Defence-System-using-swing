@@ -5,4 +5,6 @@ interface SuperObserver {
     public void sendAll(String message);
     public String getSoldierCount(String defence);
     public String getAmmoCount(String defence);
+    public String getEnergyLevel(String defence);
+    public String getOxygenLevel(String defence);
 }

@@ -163,12 +163,22 @@ class Submarine extends JFrame implements SuperDefence{
     }
 
     @Override
-    public int getSoldierCount() {
-        return Integer.parseInt(txtSoldierCount.getText());
+    public String getSoldierCount() {
+        return txtSoldierCount.getText();
     }
 
     @Override
-    public int getAmmoCount() {
-        return Integer.parseInt(txtAmmoCount.getText());
+    public String getAmmoCount() {
+        return txtAmmoCount.getText();
+    }
+
+    @Override
+    public String getEnergyLevel() {
+        return String.valueOf(energyLevel.getValue());
+    }
+
+    @Override
+    public String getOxygenLevel() {
+        return String.valueOf(oxygenLevel.getValue());
     }
 }

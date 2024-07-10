@@ -36,6 +36,8 @@ class MainController extends JFrame implements SuperMainController{
         collectInfo.addActionListener(e -> {
             txtSoldierCount.setText(observer.getSoldierCount(selectDefence.getSelectedItem().toString()));
             txtAmmoCount.setText(observer.getAmmoCount(selectDefence.getSelectedItem().toString()));
+            txtEnergyLevel.setText(observer.getEnergyLevel(selectDefence.getSelectedItem().toString()));
+            txtOxygenLevel.setText(observer.getOxygenLevel(selectDefence.getSelectedItem().toString()));
         });
         mainPanel.add(collectInfo);
 
