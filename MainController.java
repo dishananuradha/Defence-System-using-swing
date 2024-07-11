@@ -2,7 +2,7 @@ import javax.swing.*;
 import java.awt.*;
 
 class MainController extends JFrame implements SuperMainController{
-    private JComboBox<String> selectDefence;
+    private JComboBox<String> selectDefence1;
     private JButton collectInfo;
     private JTextField txtSoldierCount;
     private JTextField txtAmmoCount;
@@ -11,6 +11,7 @@ class MainController extends JFrame implements SuperMainController{
     private JSlider position;
     private JCheckBox areaClear;
     private JTextArea txtNotification;
+    private JComboBox<String> selectDefence2;
     private JCheckBox sendPrivate;
     private JTextField txtSend;
     private JButton send;
@@ -26,18 +27,18 @@ class MainController extends JFrame implements SuperMainController{
         mainPanel.setPreferredSize(new Dimension(800, 400));
 
         // Left side components
-        String[] item = {"----Select Defence----", "Helicopter", "Tank", "Submarine","All"};
-        selectDefence = new JComboBox<String>(item);
-        selectDefence.setBounds(20, 30, 150, 30);
-        mainPanel.add(selectDefence);
+        String[] item1 = {"----Select Defence----", "Helicopter", "Tank", "Submarine","All"};
+        selectDefence1 = new JComboBox<String>(item1);
+        selectDefence1.setBounds(20, 30, 150, 30);
+        mainPanel.add(selectDefence1);
 
         collectInfo = new JButton("Collect Info");
         collectInfo.setBounds(200, 30, 150, 30);
         collectInfo.addActionListener(e -> {
-            txtSoldierCount.setText(observer.getSoldierCount(selectDefence.getSelectedItem().toString()));
-            txtAmmoCount.setText(observer.getAmmoCount(selectDefence.getSelectedItem().toString()));
-            txtEnergyLevel.setText(observer.getEnergyLevel(selectDefence.getSelectedItem().toString()));
-            txtOxygenLevel.setText(observer.getOxygenLevel(selectDefence.getSelectedItem().toString()));
+            txtSoldierCount.setText(observer.getSoldierCount(selectDefence1.getSelectedItem().toString()));
+            txtAmmoCount.setText(observer.getAmmoCount(selectDefence1.getSelectedItem().toString()));
+            txtEnergyLevel.setText(observer.getEnergyLevel(selectDefence1.getSelectedItem().toString()));
+            txtOxygenLevel.setText(observer.getOxygenLevel(selectDefence1.getSelectedItem().toString()));
         });
         mainPanel.add(collectInfo);
 
@@ -127,12 +128,26 @@ class MainController extends JFrame implements SuperMainController{
         txtNotification.setLineWrap(true);
         txtNotification.setWrapStyleWord(true);
         JScrollPane scrollPane = new JScrollPane(txtNotification);
-        scrollPane.setBounds(420, 50, 350, 200);
+        scrollPane.setBounds(420, 50, 350, 190);
         scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
         mainPanel.add(scrollPane);
 
+        String[] item2 = {"----Select Defence----", "Helicopter", "Tank", "Submarine"};
+        selectDefence2 = new JComboBox<String>(item2);
+        selectDefence2.setBounds(470, 255, 150, 30);
+        selectDefence2.setEnabled(false);
+        mainPanel.add(selectDefence2);
+
         sendPrivate = new JCheckBox("Send Private");
-        sendPrivate.setBounds(420, 255, 100, 30);
+        sendPrivate.setBounds(650, 255, 100, 30);
+        sendPrivate.addActionListener(e -> {
+            if(sendPrivate.isSelected()){
+                selectDefence2.setEnabled(true);
+            }else{
+                selectDefence2.setEnabled(false);
+                selectDefence2.setSelectedIndex(0);
+            }
+        });
         mainPanel.add(sendPrivate);
 
         txtSend = new JTextField();
@@ -143,7 +158,7 @@ class MainController extends JFrame implements SuperMainController{
         send.setBounds(680, 300, 90, 30);
         send.addActionListener(e -> {
             if(sendPrivate.isSelected()){
-                observer.sendPrivate(txtSend.getText(), selectDefence.getSelectedItem().toString());
+                observer.sendPrivate(txtSend.getText(), selectDefence2.getSelectedItem().toString());
             }else{
                 observer.sendAll(txtSend.getText());
             }
