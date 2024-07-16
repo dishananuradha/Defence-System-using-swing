@@ -156,13 +156,13 @@ class Submarine extends JFrame implements SuperDefence{
     @Override
     public void sendPrivate(String message, String defence) {
         if (defence.equals("Submarine")) {
-            txtNotification.append("Message to Submarine: " + message + "\n");
+            txtNotification.append("From Main Controller to Submarine: " + message + "\n");
         }
     }
 
     @Override
     public void sendAll(String message) {
-        txtNotification.append("Message to all: " + message + "\n");
+        txtNotification.append("From Main Controller to all: " + message + "\n");
     }
 
     @Override

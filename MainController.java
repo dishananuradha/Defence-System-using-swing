@@ -88,7 +88,7 @@ class MainController extends JFrame implements SuperMainController{
         mainPanel.add(lblPosition);
 
         position = new JSlider(JSlider.HORIZONTAL, 0, 100, 0);
-        position.setBounds(20, 230, 330, 60);
+        position.setBounds(20, 230, 350, 60);
         position.setMajorTickSpacing(20);
         position.setMinorTickSpacing(5);
         position.setPaintTicks(true);
@@ -171,6 +171,6 @@ class MainController extends JFrame implements SuperMainController{
 
     @Override
     public void sendToMain(String message, String defence){
-        txtNotification.append(defence + ": " + message + "\n");
+        txtNotification.append("From "+ defence + ": " + message + "\n");
     }
 }

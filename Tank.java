@@ -129,13 +129,13 @@ class Tank extends JFrame implements SuperDefence{
     @Override
     public void sendPrivate(String message, String defence) {
         if (defence.equals("Tank")) {
-            txtNotification.append("Message to Tank: " + message + "\n");
+            txtNotification.append("From Main Controller to Tank: " + message + "\n");
         }
     }
 
     @Override
     public void sendAll(String message) {
-        txtNotification.append("Message to all: " + message + "\n");
+        txtNotification.append("From Main Controller to all: " + message + "\n");
     }
 
     @Override
