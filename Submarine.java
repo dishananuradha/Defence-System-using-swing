@@ -29,7 +29,7 @@ class Submarine extends JFrame implements SuperDefence{
         mainPanel.setLayout(null);
         mainPanel.setPreferredSize(new Dimension(600, 400));
 
-        // Left side components
+        //left side components
         JLabel lblSoldierCount = new JLabel("Soldier Count");
         lblSoldierCount.setBounds(20, 30, 150, 30);
         mainPanel.add(lblSoldierCount);
@@ -75,12 +75,12 @@ class Submarine extends JFrame implements SuperDefence{
         areaClear.setForeground(Color.RED);
         mainPanel.add(areaClear);
 
-        // Separator
+        //separator
         JSeparator separator3 = new JSeparator(SwingConstants.VERTICAL);
         separator3.setBounds(275, 20, 1, 320);
         mainPanel.add(separator3);
 
-        // Right side components
+        //right side components
         JLabel lblNotification = new JLabel("Notifications");
         lblNotification.setBounds(300, 20, 150, 30);
         mainPanel.add(lblNotification);
@@ -132,6 +132,7 @@ class Submarine extends JFrame implements SuperDefence{
         add(mainPanel);
     }
 
+    //set area clear or not
     @Override
     public void areaClear(Boolean isAreaClear) {
         if(isAreaClear){
@@ -143,6 +144,7 @@ class Submarine extends JFrame implements SuperDefence{
         }
     }
 
+    //set position
     @Override
     public void position(int positionValue) {
         if(position.isSelected()){
@@ -153,6 +155,7 @@ class Submarine extends JFrame implements SuperDefence{
         }
     }
 
+    //send msgs to defences privately
     @Override
     public void sendPrivate(String message, String defence) {
         if (defence.equals("Submarine")) {
@@ -160,26 +163,31 @@ class Submarine extends JFrame implements SuperDefence{
         }
     }
 
+    //send msgs to all defences
     @Override
     public void sendAll(String message) {
         txtNotification.append("From Main Controller to all: " + message + "\n");
     }
 
+    //get soldier count
     @Override
     public String getSoldierCount() {
         return txtSoldierCount.getText();
     }
 
+    //get ammo count
     @Override
     public String getAmmoCount() {
         return txtAmmoCount.getText();
     }
 
+    //get energy level
     @Override
     public String getEnergyLevel() {
         return String.valueOf(energyLevel.getValue());
     }
 
+    //get oxygen level
     @Override
     public String getOxygenLevel() {
         return String.valueOf(oxygenLevel.getValue());

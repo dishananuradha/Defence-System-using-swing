@@ -26,7 +26,7 @@ class MainController extends JFrame implements SuperMainController{
         mainPanel.setLayout(null);
         mainPanel.setPreferredSize(new Dimension(800, 400));
 
-        // Left side components
+        //left side components
         String[] item1 = {"----Select Defence----", "Helicopter", "Tank", "Submarine","All"};
         selectDefence1 = new JComboBox<String>(item1);
         selectDefence1.setBounds(20, 30, 150, 30);
@@ -78,7 +78,7 @@ class MainController extends JFrame implements SuperMainController{
         txtOxygenLevel.setEditable(false);
         mainPanel.add(txtOxygenLevel);
 
-        //Separator1
+        //horizontal separator1
         JSeparator Separator1 = new JSeparator(SwingConstants.HORIZONTAL);
         Separator1.setBounds(20, 190, 340, 1);
         mainPanel.add(Separator1);
@@ -98,7 +98,7 @@ class MainController extends JFrame implements SuperMainController{
         });
         mainPanel.add(position);
 
-        //Separator2
+        //horizontal separator2
         JSeparator Separator2 = new JSeparator(SwingConstants.HORIZONTAL);
         Separator2.setBounds(20, 295, 340, 1);
         mainPanel.add(Separator2);
@@ -114,12 +114,12 @@ class MainController extends JFrame implements SuperMainController{
         });
         mainPanel.add(areaClear);
 
-        // Separator3
+        //vertical separator
         JSeparator separator3 = new JSeparator(SwingConstants.VERTICAL);
         separator3.setBounds(405, 20, 1, 320);
         mainPanel.add(separator3);
 
-        // Right side components
+        //right side components
         JLabel lblNotification = new JLabel("Notifications");
         lblNotification.setBounds(420, 20, 150, 30);
         mainPanel.add(lblNotification);
@@ -169,6 +169,7 @@ class MainController extends JFrame implements SuperMainController{
         add(mainPanel);
     }
 
+    //send msg to the main controller
     @Override
     public void sendToMain(String message, String defence){
         txtNotification.append("From "+ defence + ": " + message + "\n");
